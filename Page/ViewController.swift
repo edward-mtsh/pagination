@@ -8,18 +8,48 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
+    
+    private var colors: [UIColor] = [.red, .blue]
+    private var names: [String] = [".red", ".blue"]
+    private var index:Int = 0
+    private var sheduleViewController:SheduleViewController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        self.dataSource = self
+        self.setViewController(index: index)
     }
-
+    
+    func setViewController(index:Int)  {
+        guard let view = getViewControllerAtIndex(index: index) else {
+            return
+            }
+        self.setViewControllers([view] as [UIViewController], direction: .forward, animated: false, completion: nil)
+    }
+   
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+        self.index -= 1
+        return getViewControllerAtIndex(index: index)
+    }
+    
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+        self.index += 1
+        return getViewControllerAtIndex(index: index)
+    }
+    
+    func getViewControllerAtIndex(index:Int) -> SheduleViewController? {
+        sheduleViewController = SheduleViewController(nibName: "SheduleViewController", bundle: nil)
+        sheduleViewController?.view.backgroundColor = colors[index]
+        sheduleViewController?.name = names[index]
+        self.index = index
+        return sheduleViewController
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-
-
+    
 }
+
 

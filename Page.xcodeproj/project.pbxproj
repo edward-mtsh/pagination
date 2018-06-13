@@ -14,6 +14,8 @@
 		FDD7439120D1418C00675EE2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDD7438F20D1418C00675EE2 /* LaunchScreen.storyboard */; };
 		FDD7439C20D1418C00675EE2 /* PageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD7439B20D1418C00675EE2 /* PageTests.swift */; };
 		FDD743A720D1418C00675EE2 /* PageUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD743A620D1418C00675EE2 /* PageUITests.swift */; };
+		FDD743BB20D159E400675EE2 /* SheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD743B920D159E400675EE2 /* SheduleViewController.swift */; };
+		FDD743BC20D159E400675EE2 /* SheduleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDD743BA20D159E400675EE2 /* SheduleViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		FDD743A220D1418C00675EE2 /* PageUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PageUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDD743A620D1418C00675EE2 /* PageUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageUITests.swift; sourceTree = "<group>"; };
 		FDD743A820D1418D00675EE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FDD743B920D159E400675EE2 /* SheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheduleViewController.swift; sourceTree = "<group>"; };
+		FDD743BA20D159E400675EE2 /* SheduleViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SheduleViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,8 @@
 				FDD7438D20D1418C00675EE2 /* Assets.xcassets */,
 				FDD7438F20D1418C00675EE2 /* LaunchScreen.storyboard */,
 				FDD7439220D1418C00675EE2 /* Info.plist */,
+				FDD743B920D159E400675EE2 /* SheduleViewController.swift */,
+				FDD743BA20D159E400675EE2 /* SheduleViewController.xib */,
 			);
 			path = Page;
 			sourceTree = "<group>";
@@ -232,6 +238,7 @@
 				FDD7439120D1418C00675EE2 /* LaunchScreen.storyboard in Resources */,
 				FDD7438E20D1418C00675EE2 /* Assets.xcassets in Resources */,
 				FDD7438C20D1418B00675EE2 /* Main.storyboard in Resources */,
+				FDD743BC20D159E400675EE2 /* SheduleViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,6 +264,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FDD7438920D1418B00675EE2 /* ViewController.swift in Sources */,
+				FDD743BB20D159E400675EE2 /* SheduleViewController.swift in Sources */,
 				FDD7438720D1418B00675EE2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
