@@ -8,26 +8,46 @@
 
 import UIKit
 
-class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
+class PageViewController: UIViewController {
     
-    private var colors: [UIColor] = [.red, .blue]
-    private var names: [String] = [".red", ".blue"]
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    private var colors: [UIColor] = [.white, .white]
+    private var redNames: [String] = [".red1", ".red2"]
+    private var blueNames: [String] = [".blue1", ".blue2"]
     private var index:Int = 0
     private var sheduleViewController:SheduleViewController?
+    private var paginationViewController: UIPageViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.dataSource = self
-        self.setViewController(index: index)
+        paginationViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
+        paginationViewController?.dataSource = self
+        paginationViewController?.view.frame = view.bounds
+        paginationViewController?.view.frame = CGRect(x: 0, y: 0, width: view.bounds.size.width, height: view.bounds.size.height + 37)
+
+        let initialViewController: SheduleViewController? = getViewControllerAtIndex(index: 0)
+        let viewControllers = [initialViewController]
+        paginationViewController?.setViewControllers(viewControllers as? [UIViewController], direction: .forward, animated: false) { _ in }
+        addChildViewController(paginationViewController!)
+        view.addSubview(paginationViewController!.view)
+        paginationViewController?.didMove(toParentViewController: self)
+        self.view.bringSubview(toFront: segmentedControl)
     }
     
-    func setViewController(index:Int)  {
-        guard let view = getViewControllerAtIndex(index: index) else {
-            return
-            }
-        self.setViewControllers([view] as [UIViewController], direction: .forward, animated: false, completion: nil)
+    @IBAction func tapped(_ sender: Any) {
+        self.index = 0
+        let initialViewController: SheduleViewController? = getViewControllerAtIndex(index: segmentedControl.selectedSegmentIndex)
+        let viewControllers = [initialViewController]
+        paginationViewController?.setViewControllers(viewControllers as? [UIViewController], direction: .forward, animated: false) { _ in }
     }
-   
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+}
+
+extension PageViewController: UIPageViewControllerDataSource {
+    
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         self.index -= 1
         return getViewControllerAtIndex(index: index)
@@ -41,15 +61,10 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
     func getViewControllerAtIndex(index:Int) -> SheduleViewController? {
         sheduleViewController = SheduleViewController(nibName: "SheduleViewController", bundle: nil)
         sheduleViewController?.view.backgroundColor = colors[index]
-        sheduleViewController?.name = names[index]
+        sheduleViewController?.name = segmentedControl.selectedSegmentIndex == 0 ? redNames[index] : blueNames[index]
         self.index = index
         return sheduleViewController
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
 }
 
 

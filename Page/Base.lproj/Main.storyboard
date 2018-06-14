@@ -19,24 +19,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="3hT-La-X86">
-                                <rect key="frame" x="127" y="20" width="121" height="28"/>
+                                <rect key="frame" x="16" y="44" width="343" height="29"/>
                                 <segments>
                                     <segment title="First"/>
                                     <segment title="Second"/>
                                 </segments>
+                                <connections>
+                                    <action selector="tapped:" destination="BYZ-38-t0r" eventType="valueChanged" id="OCf-PC-Ctp"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="3hT-La-X86" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="HDc-A5-Wea"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="3hT-La-X86" secondAttribute="bottom" constant="620" id="M2n-kU-KX9"/>
-                            <constraint firstItem="3hT-La-X86" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="wEJ-26-uqr"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3hT-La-X86" secondAttribute="trailing" constant="16" id="0GG-6g-pMf"/>
+                            <constraint firstItem="3hT-La-X86" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="24" id="WKT-DH-Vk9"/>
+                            <constraint firstItem="3hT-La-X86" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="esf-nm-lHq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="segmentedControl" destination="3hT-La-X86" id="EfE-fK-YZI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="32.799999999999997" y="31.934032983508249"/>
         </scene>
     </scenes>
 </document>
